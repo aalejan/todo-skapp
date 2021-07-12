@@ -1,6 +1,5 @@
-import react from 'React'
 
-export const Todo = ({input}) => {
+const Todo = () => {
 
     return(
         <li>
@@ -12,3 +11,5 @@ export const Todo = ({input}) => {
 
     )
 }
+
+export default Todo

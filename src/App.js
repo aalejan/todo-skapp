@@ -1,3 +1,5 @@
+import { useState, useRef} from 'react';
+
 import Todo from './components/Todo'
 // Import the SkynetClient and a helper
 // import { SkynetClient, genKeyPairFromSeed } from 'skynet-js';
@@ -17,21 +19,19 @@ import Todo from './components/Todo'
 // Initiate the SkynetClient
 
 
-
-
 function App() {
+  let textInput = useRef();
+  const[todos, setTodos] = useState([])
+
+  
+
   return (
     <div className="App">
-      <ul>
-        <Todo input= 'input'/>
-      </ul>
-      <form>
-        <label htmlFor="todo-input"></label>
-        <input type="text" className="todo-input" />
-        <button type="submit"></button>
-      </form>
+     hello
     </div>
   );
 }
+
+
 
 export default App;

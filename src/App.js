@@ -1,7 +1,8 @@
-import { useState} from 'react';
+import { useEffect, useState} from 'react';
 import TodoForm from './components/TodoForm'
+import TodoList from './components/TodoList';
 
-import Todo from './components/Todo'
+
 // Import the SkynetClient and a helper
 // import { SkynetClient, genKeyPairFromSeed } from 'skynet-js';
 
@@ -24,14 +25,25 @@ function App() {
   
   const[todos, setTodos] = useState([])
 
+  useEffect(() => {
+
+  },[])
+
   function addTodo(todo){
-    setTodos([todo, ...todo]);
+    setTodos([todo, ...todos]);
+  }
+
+  function deleteTodo(id){
+    setTodos(todos.filter((todo) => {
+      return todo.id !== id 
+    }))
   }
   
 
   return (
     <div className="App">
      <TodoForm addTodo={addTodo} />
+     <TodoList todos={todos} deleteTodo={deleteTodo} />
     </div>
   );
 }

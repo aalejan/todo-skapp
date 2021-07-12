@@ -1,14 +1,14 @@
 
-const Todo = () => {
+const Todo = ({todo, deleteTodo}) => {
+function handleDeleteTodo(){
+    deleteTodo(todo.id)
+}
 
     return(
-        <li>
-            <label class="list-item-label">
-            <span data-list-item-text></span>
-            </label>
-            <button data-button-delete>Delete</button>
-        </li>
-
+        <div>
+           <li>{todo.task}</li>
+            <button onClick={handleDeleteTodo}>Delete</button> 
+        </div>
     )
 }
 

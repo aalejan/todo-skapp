@@ -1,4 +1,5 @@
-import { useState, useRef} from 'react';
+import { useState} from 'react';
+import TodoForm from './components/TodoForm'
 
 import Todo from './components/Todo'
 // Import the SkynetClient and a helper
@@ -20,14 +21,17 @@ import Todo from './components/Todo'
 
 
 function App() {
-  let textInput = useRef();
+  
   const[todos, setTodos] = useState([])
 
+  function addTodo(todo){
+    setTodos([todo, ...todo]);
+  }
   
 
   return (
     <div className="App">
-     hello
+     <TodoForm addTodo={addTodo} />
     </div>
   );
 }

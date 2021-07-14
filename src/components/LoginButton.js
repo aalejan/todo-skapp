@@ -1,9 +1,9 @@
 
 
-const LoginButton = () => {
+const LoginButton = ({handleMySkyLogin}) => {
 
     return(
-        <button id='login-button'>
+        <button onClick={handleMySkyLogin} id='login-button'>
             Login to MySky
         </button>
     )

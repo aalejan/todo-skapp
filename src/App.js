@@ -1,48 +1,35 @@
+import { SkynetClient} from 'skynet-js';
 import { useEffect, useState} from 'react';
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList';
-
-
-// Import the SkynetClient and a helper
-import { SkynetClient} from 'skynet-js';
 import LoginButton from './components/LoginButton';
 
-// We'll define a portal to allow for developing on localhost.
-// When hosted on a skynet portal, SkynetClient doesn't need any arguments.
 const portal =
   window.location.hostname === 'localhost' ? 'https://siasky.net' : undefined;
 
   const client = new SkynetClient(portal);
-  const hostApp = "localhost";
-  // const { publicKey } = genKeyPairFromSeed();
-  // const { privateKey } = genKeyPairFromSeed();
-
-  // const dataKey = "todos";
-
-
-// Initiate the SkynetClient
-
-
+  const dataDomain = "localhost";
+  
 function App() {
-
- 
-
   const[todos, setTodos] = useState([])
-
+  const[mySky, setMySky] = useState()
+  const[userID, setUserID] = useState()
+  const [loggedIn, setLoggedIn] = useState(null)
 
   useEffect(() => {
     
   
 async function initMySky() {
   try {
-    const mySky = await client.loadMySky(hostApp);
+    const mySky = await client.loadMySky(dataDomain);
 
     const loggedIn = await mySky.checkLogin();
 
-    if (!loggedIn) {
-      document
-        .getElementById("login-button")
-        .addEventListener("click", mySky.requestLoginAccess());
+   setMySky(mySky)
+
+    if (loggedIn) {
+    
+      setUserID(await mySky.userID())
     }
 
   } catch (e) {
@@ -52,11 +39,19 @@ async function initMySky() {
 
 // call async setup function
 initMySky();
-    /************************************************/
 
-
-    /*****/
   }, []);
+
+  const handleMySkyLogin = async () => {
+
+    const status = await mySky.requestLoginAccess();
+
+setLoggedIn(status);
+
+if (status) {
+  setUserID(await mySky.userID());
+}
+  };
 
   function addTodo(todo){
     setTodos([todo, ...todos]);
@@ -73,7 +68,7 @@ initMySky();
     <div className="App">
      <TodoForm addTodo={addTodo} />
      <TodoList todos={todos} deleteTodo={deleteTodo} />
-     <LoginButton/>
+     <LoginButton handleMySkyLogin={handleMySkyLogin}/>
     </div>
   );
 }

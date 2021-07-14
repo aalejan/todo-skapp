@@ -41,9 +41,8 @@ async function initMySky() {
 
     const loggedIn = await mySky.checkLogin();
 
-   setMySky(mySky);
-   setLoggedIn(loggedIn);
-
+   setMySky(mySky)
+    setLoggedIn(loggedIn)
     if (loggedIn) {
     
       setUserID(await mySky.userID())
@@ -86,8 +85,7 @@ if (status) {
   const handleMySkyWrite = async (jsonData) => {
     
 try {
-  console.log('userID', userID);
-  console.log('filePath', filePath);
+  
   await mySky.setJSON(filePath, jsonData);
   await console.log(jsonData)
 } catch (error) {
@@ -112,6 +110,7 @@ try {
 
     if (data){
       setTodos(data.todoList)
+      console.log(data)
     }else{
       console.error('There was a problem with getJSON')
     }
@@ -119,7 +118,7 @@ try {
 
   const addTodo = async(todo) => {
 
-    await setTodos([todo, ...todos]);
+     setTodos([todo, ...todos]);
      const jsonData = {
       todoList: [todo, ...todos]
     };
@@ -128,14 +127,14 @@ try {
   }
 
   const  deleteTodo = async(id) => {
-    await setTodos(todos.filter((todo) => {
+     setTodos(todos.filter((todo) => {
       return todo.id !== id 
     }))
 
     const jsonData = {
-      todoList: [todos.filter((todo) => {
+      todoList: todos.filter((todo) => {
         return todo.id !== id 
-      })]
+      })
     };
 
     await handleMySkyWrite(jsonData);
@@ -150,9 +149,9 @@ try {
      <LoginButton handleMySkyLogin={handleMySkyLogin}/>
      <LogoutButton handleMySkyLogout={handleMySkyLogout}/>
      <LoadDataButton loadData={loadData} />
-    <div>
-      You are {loggedIn ? `currently` : `not`} logged in.
-    </div>
+     <div>
+       You are {loggedIn ? `currently` : `not`} logged in.
+     </div>
     </div>
   );
 }

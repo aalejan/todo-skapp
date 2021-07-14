@@ -14,7 +14,7 @@ const TodoForm = ({addTodo}) => {
     function handleSubmit(e){
         e.preventDefault();
         if(todo.task){
-            addTodo({...todo, id: uuid.v4})
+            addTodo({...todo,id: new Date().valueOf().toString()})
 
             setTodo({...todo, task : ''})
         }

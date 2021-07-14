@@ -1550,6 +1550,15 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@skynetlabs/content-record-library@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@skynetlabs/content-record-library/-/content-record-library-0.5.0.tgz#c2be904dd5b4c548d76ceffac5b06cb294aa7ce1"
+  integrity sha512-+yNM75FHFFCrbfhw45yMG+VH05LElI78npju4jwcnr8zGQKkaE+jCCsD4UOH9C7yZN0cLUV9Mc3hfg48wagXcg==
+  dependencies:
+    post-me "^0.4.5"
+    skynet-js "^4.0.5-beta"
+    skynet-mysky-utils "^0.1.2"
+
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-1.4.2.tgz#e6786b6af5799f82f7ab3a82e53f6182d2b91a58"
@@ -9929,6 +9938,33 @@ skynet-js@^4.0.11-beta:
     url-join "^4.0.1"
     url-parse "^1.5.1"
 
+skynet-js@^4.0.5-beta:
+  version "4.0.5-beta"
+  resolved "https://registry.yarnpkg.com/skynet-js/-/skynet-js-4.0.5-beta.tgz#954c18efbfdb7f6ce10fed2675403ad0bb912e17"
+  integrity sha512-m6rNvrCEjAUroIybwRAffOXI/VCHO38JLA10jEBl9WxZuNqIb6hPDpQK7BLw1hcF79Va3hzeGXsVs1ChC3Z/eA==
+  dependencies:
+    axios "^0.21.0"
+    base32-encode "^1.1.1"
+    base64-js "^1.3.1"
+    blakejs "^1.1.0"
+    buffer "^6.0.1"
+    mime "^2.5.2"
+    path-browserify "^1.0.1"
+    post-me "^0.4.5"
+    randombytes "^2.1.0"
+    sjcl "^1.0.8"
+    skynet-mysky-utils "^0.2.2"
+    tweetnacl "^1.0.3"
+    url-join "^4.0.1"
+    url-parse "1.4.7"
+
+skynet-mysky-utils@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/skynet-mysky-utils/-/skynet-mysky-utils-0.1.2.tgz#1ca5e9cf69a71ac67dd805c90371fd71f622adc1"
+  integrity sha512-ehPGwIIMldrG6S4ynkvElcqMeSrT85ignto1z/Nx3yFcHiiNDRLq5y6ZGXdSSNw2XfVSi8e66wjbL0qlNNCZog==
+  dependencies:
+    post-me "^0.4.5"
+
 skynet-mysky-utils@^0.2.2:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/skynet-mysky-utils/-/skynet-mysky-utils-0.2.3.tgz#5007cf8f7599b665ccf016003b37a4ed0fb19abf"
@@ -10913,6 +10949,14 @@ url-loader@4.1.1:
     loader-utils "^2.0.0"
     mime-types "^2.1.27"
     schema-utils "^3.0.0"
+
+url-parse@1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
+  integrity sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+  dependencies:
+    querystringify "^2.1.1"
+    requires-port "^1.0.0"
 
 url-parse@^1.4.3, url-parse@^1.5.1:
   version "1.5.1"

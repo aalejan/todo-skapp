@@ -5,6 +5,7 @@ import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
+import LoadDataButton from './components/LoadDataButton';
 
 const portal =
   window.location.hostname === 'localhost' ? 'https://siasky.net' : undefined;
@@ -34,6 +35,9 @@ function App() {
 async function initMySky() {
   try {
     const mySky = await client.loadMySky(dataDomain);
+
+    await mySky.loadDacs(contentRecord);
+
 
     const loggedIn = await mySky.checkLogin();
 
@@ -99,6 +103,19 @@ try {
    
   };
 
+  const loadData = async (e) => {
+    e.preventDefault();
+    console.log('Loading user data from SkyDB');
+
+    const {data} = await mySky.getJSON(filePath)
+
+    if (data){
+      setTodos(data.todoList)
+    }else{
+      console.error('There was a problem with getJSON')
+    }
+  }
+
   const addTodo = async(todo) => {
 
     await setTodos([todo, ...todos]);
@@ -122,6 +139,7 @@ try {
      <TodoList todos={todos} deleteTodo={deleteTodo} />
      <LoginButton handleMySkyLogin={handleMySkyLogin}/>
      <LogoutButton handleMySkyLogout={handleMySkyLogout}/>
+     <LoadDataButton loadData={loadData} />
     </div>
   );
 }

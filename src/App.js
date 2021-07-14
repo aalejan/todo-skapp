@@ -41,7 +41,8 @@ async function initMySky() {
 
     const loggedIn = await mySky.checkLogin();
 
-   setMySky(mySky)
+   setMySky(mySky);
+   setLoggedIn(loggedIn);
 
     if (loggedIn) {
     
@@ -126,10 +127,19 @@ try {
     await handleMySkyWrite(jsonData);
   }
 
-  function deleteTodo(id){
-    setTodos(todos.filter((todo) => {
+  const  deleteTodo = async(id) => {
+    await setTodos(todos.filter((todo) => {
       return todo.id !== id 
     }))
+
+    const jsonData = {
+      todoList: [todos.filter((todo) => {
+        return todo.id !== id 
+      })]
+    };
+
+    await handleMySkyWrite(jsonData);
+
   }
   
 
@@ -140,6 +150,9 @@ try {
      <LoginButton handleMySkyLogin={handleMySkyLogin}/>
      <LogoutButton handleMySkyLogout={handleMySkyLogout}/>
      <LoadDataButton loadData={loadData} />
+    <div>
+      You are {loggedIn ? `currently` : `not`} logged in.
+    </div>
     </div>
   );
 }

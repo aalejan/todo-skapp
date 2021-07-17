@@ -22,7 +22,7 @@ const TodoForm = ({addTodo}) => {
     }
 
     return(
-        <div className="form-container">
+        <FormContainer className="form-container">
             <form onSubmit={handleSubmit}>
                 <input
                 name='task'
@@ -30,8 +30,20 @@ const TodoForm = ({addTodo}) => {
                 onChange={handleInputChange} type="text" />
                 <button type='submit' >Add Todo</button>
             </form>
-        </div>
+        </FormContainer>
     )
+
 }
+
+const FormContainer = styled.div `
+       
+
+       form{
+           background: #fc5185;
+           width: 100%;
+           padding: 5rem;
+           border-radius: 10px;
+       }
+    `
 
 export default TodoForm

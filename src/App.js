@@ -145,8 +145,8 @@ try {
 
   return (
     <div className="App">
+       <TodoList todos={todos} deleteTodo={deleteTodo} />
      <TodoForm addTodo={addTodo} />
-     <TodoList todos={todos} deleteTodo={deleteTodo} />
      <LoginButton handleMySkyLogin={handleMySkyLogin}/>
      <LogoutButton handleMySkyLogout={handleMySkyLogout}/>
      <LoadDataButton loadData={loadData} />

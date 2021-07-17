@@ -1,6 +1,7 @@
 import { SkynetClient} from 'skynet-js';
 import { ContentRecordDAC } from '@skynetlabs/content-record-library';
 import { useEffect, useState} from 'react';
+import './App.css'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList';
 import LoginButton from './components/LoginButton';
@@ -10,7 +11,7 @@ import LoadDataButton from './components/LoadDataButton';
 const portal =
   window.location.hostname === 'localhost' ? 'https://siasky.net' : undefined;
 
-  const client = new SkynetClient(portal);
+  const client = new SkynetClient();
   const dataDomain = "localhost";
 
   const contentRecord = new ContentRecordDAC();

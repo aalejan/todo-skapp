@@ -1,5 +1,6 @@
 import { useState } from "react"
-import {v4 as uuid} from "uuid"; 
+import styled from 'styled-components'
+
 
 const TodoForm = ({addTodo}) => {
     const [todo, setTodo] = useState({
@@ -21,13 +22,15 @@ const TodoForm = ({addTodo}) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <input
-            name='task'
-            value={todo.task}
-             onChange={handleInputChange} type="text" />
-            <button type='submit' >Add Todo</button>
-        </form>
+        <div className="form-container">
+            <form onSubmit={handleSubmit}>
+                <input
+                name='task'
+                value={todo.task}
+                onChange={handleInputChange} type="text" />
+                <button type='submit' >Add Todo</button>
+            </form>
+        </div>
     )
 }
 

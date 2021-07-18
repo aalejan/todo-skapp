@@ -12,7 +12,7 @@ import styled from 'styled-components';
 const portal =
   window.location.hostname === 'localhost' ? 'https://siasky.net' : undefined;
 
-  const client = new SkynetClient();
+  const client = new SkynetClient(portal);
   const dataDomain = "localhost";
 
   const contentRecord = new ContentRecordDAC();
@@ -20,6 +20,7 @@ const portal =
   
 function App() {
   const[todos, setTodos] = useState([])
+  const[jsonData, setJsonData] = useState({})
   const[mySky, setMySky] = useState()
   const[userID, setUserID] = useState()
   const [loggedIn, setLoggedIn] = useState(null)
@@ -89,7 +90,8 @@ if (status) {
 try {
   
   await mySky.setJSON(filePath, jsonData);
-  await console.log(jsonData)
+  
+   console.log(jsonData)
 } catch (error) {
   console.log(`error with setJSON: ${error.message}`);
 }
@@ -121,11 +123,12 @@ try {
   const addTodo = async(todo) => {
 
      setTodos([todo, ...todos]);
-     const jsonData = {
-      todoList: [todo, ...todos]
-    };
+     setJsonData({todoList: [todo, ...todos]})
+    //  const jsonData = {
+    //   todoList: [todo, ...todos]
+    // };
 
-    await handleMySkyWrite(jsonData);
+    // await handleMySkyWrite(jsonData);
   }
 
   const  deleteTodo = async(id) => {
@@ -133,13 +136,17 @@ try {
       return todo.id !== id 
     }))
 
-    const jsonData = {
-      todoList: todos.filter((todo) => {
-        return todo.id !== id 
-      })
-    };
+    setJsonData({todoList: todos.filter((todo) => {
+          return todo.id !== id 
+        })})
 
-    await handleMySkyWrite(jsonData);
+    // const jsonData = {
+    //   todoList: todos.filter((todo) => {
+    //     return todo.id !== id 
+    //   })
+    // };
+
+    // await handleMySkyWrite(jsonData);
 
   }
   
@@ -151,6 +158,9 @@ try {
      <Buttons>
         <LoginButton  handleMySkyLogin={handleMySkyLogin}/>
         <LogoutButton  handleMySkyLogout={handleMySkyLogout}/>
+        <button onClick={() =>  handleMySkyWrite(jsonData)}>
+          Save Data 
+        </button>
         <LoadDataButton  loadData={loadData} />
      </Buttons>
      

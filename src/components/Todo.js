@@ -21,12 +21,14 @@ const TodoContainer = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+margin-top: .75rem;
 
     li{
         margin-right: .5em;
         list-style: none;
         text-transform: uppercase;
         font-family:'Roboto',sans-serif;
+       
     }
     
 `

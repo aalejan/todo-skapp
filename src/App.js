@@ -27,6 +27,7 @@ function App() {
   const[userID, setUserID] = useState()
   const [loggedIn, setLoggedIn] = useState(null)
   const[filePath, setFilePath] = useState()
+  const[userMessage, setUserMessage] = useState('')
 
   useEffect(() => {
     setFilePath(dataDomain + '/' + userID);
@@ -163,6 +164,14 @@ if(Object.keys(jsonData).length === 0){
     // await handleMySkyWrite(jsonData);
 
   }
+
+  const renderedMessage = () => {
+    if(!loggedIn){
+      return ('You are not logged in.')
+    } else if(loggedIn && saving){
+      return ('Saving Data...')
+    } else return ('You are currently logged in.')
+  }
   
 
   return (
@@ -179,13 +188,15 @@ if(Object.keys(jsonData).length === 0){
         </button>
         <LoadDataButton saving={saving} loadData={loadData} />
      </Buttons>
-     
      <div>
-       You are {loggedIn ? `currently` : `not`} logged in.
+       {renderedMessage()}
+       
      </div>
     </div>
   );
 }
+
+
 
 const Buttons = styled.div `
   button{

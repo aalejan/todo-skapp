@@ -3,11 +3,13 @@
 const LoginButton = ({handleMySkyLogin}) => {
 
     return(
-        <button onClick={handleMySkyLogin} id='login-button'>
+        <button className='bouncy' onClick={handleMySkyLogin} id='login-button'>
             Login to MySky
         </button>
     )
 
 }
+
+
 
 export default LoginButton

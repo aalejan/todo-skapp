@@ -39,7 +39,7 @@ const FormContainer = styled.div `
        
 
        form{
-           background: #fc5185;
+           background: #f76c6c;
            width: 100%;
            padding: 5rem;
            border-radius: 10px;

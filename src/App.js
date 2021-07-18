@@ -7,6 +7,7 @@ import TodoList from './components/TodoList';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import LoadDataButton from './components/LoadDataButton';
+import styled from 'styled-components';
 
 const portal =
   window.location.hostname === 'localhost' ? 'https://siasky.net' : undefined;
@@ -146,16 +147,35 @@ try {
   return (
     <div className="App">
        <TodoList todos={todos} deleteTodo={deleteTodo} />
-     <TodoForm addTodo={addTodo} />
-     <LoginButton handleMySkyLogin={handleMySkyLogin}/>
-     <LogoutButton handleMySkyLogout={handleMySkyLogout}/>
-     <LoadDataButton loadData={loadData} />
+        <TodoForm addTodo={addTodo} />
+     <Buttons>
+        <LoginButton  handleMySkyLogin={handleMySkyLogin}/>
+        <LogoutButton  handleMySkyLogout={handleMySkyLogout}/>
+        <LoadDataButton  loadData={loadData} />
+     </Buttons>
+     
      <div>
        You are {loggedIn ? `currently` : `not`} logged in.
      </div>
     </div>
   );
 }
+
+const Buttons = styled.div `
+  button{
+    display: inline-block;
+    padding:0.5em 1.1em;
+     margin:0 0.8em 0.3em 0;
+    margin-top: .5em;
+    border-radius:0.15em;
+    border: none;
+     background-color:#9de2f3;
+     box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+     text-align:center;
+     position:relative;
+  }
+
+`
 
 
 

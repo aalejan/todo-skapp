@@ -3,10 +3,12 @@
 const LogoutButton = ({handleMySkyLogout}) => {
 
     return (
-        <button onClick={handleMySkyLogout}>
+        <button className='bouncy' onClick={handleMySkyLogout}>
             Logout 
         </button>
     )
 }
+
+
 
 export default LogoutButton

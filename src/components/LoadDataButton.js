@@ -3,10 +3,11 @@
 const LoadDataButton = ({loadData}) => {
 
     return(
-        <button onClick={loadData}>
+        <button className='bouncy' onClick={loadData}>
             Load Data
         </button>
     )
 }
+
 
 export default LoadDataButton

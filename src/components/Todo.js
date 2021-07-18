@@ -1,3 +1,4 @@
+import styled from "styled-components"
 
 const Todo = ({todo, deleteTodo}) => {
 function handleDeleteTodo(){
@@ -5,11 +6,27 @@ function handleDeleteTodo(){
 }
 
     return(
-        <div>
-           <li>{todo.task}</li>
-            <button onClick={handleDeleteTodo}>Delete</button> 
-        </div>
+        
+            <TodoContainer>
+                <li>{todo.task}</li>
+                <button onClick={handleDeleteTodo}>Delete</button> 
+            </TodoContainer>
+        
+       
     )
 }
+
+const TodoContainer = styled.div`
+display: flex;
+justify-content: center;
+
+    li{
+        margin-right: .5em;
+        list-style: none;
+        text-transform: uppercase;
+        font-family:'Roboto',sans-serif;
+    }
+    
+`
 
 export default Todo

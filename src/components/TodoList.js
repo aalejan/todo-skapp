@@ -22,6 +22,10 @@ const ListContainer = styled.div`
     display: flex;
     justify-content: center;
     color: black;
+    margin-bottom: 1rem;
+    ul{
+        width: 100%;
+    }
 `
 
 

@@ -88,8 +88,14 @@ if (status) {
  
 
   const handleMySkyWrite = async (jsonData) => {
+    setSaving(true);
     
-try {
+if(Object.keys(jsonData).length === 0){
+  setSaving(false)
+  return console.log('No')
+  
+}else {
+  try {
   
   await mySky.setJSON(filePath, jsonData);
   
@@ -105,7 +111,10 @@ try {
     } catch (error) {
       console.log(`error with CR DAC: ${error.message}`);
     }
+}
+
    
+    setSaving(false)
   };
 
   const loadData = async (e) => {
@@ -165,10 +174,10 @@ try {
      <Buttons>
         <LoginButton  handleMySkyLogin={handleMySkyLogin}/>
         <LogoutButton  handleMySkyLogout={handleMySkyLogout}/>
-        <button onClick={() =>  handleMySkyWrite(jsonData)}>
+        <button  onClick={() =>  handleMySkyWrite(jsonData)}>
           Save Data 
         </button>
-        <LoadDataButton  loadData={loadData} />
+        <LoadDataButton saving={saving} loadData={loadData} />
      </Buttons>
      
      <div>

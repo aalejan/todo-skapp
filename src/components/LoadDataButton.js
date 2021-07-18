@@ -1,9 +1,9 @@
 
 
-const LoadDataButton = ({loadData}) => {
+const LoadDataButton = ({loadData, saving}) => {
 
     return(
-        <button  onClick={loadData}>
+        <button disabled= {saving} onClick={loadData}>
             Load Data
         </button>
     )

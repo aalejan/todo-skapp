@@ -169,10 +169,12 @@ const Buttons = styled.div `
     margin-top: .5em;
     border-radius:0.15em;
     border: none;
-     background-color:#9de2f3;
+     background-color:#def1fb;
      box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
      text-align:center;
      position:relative;
+    cursor:pointer;
+   
   }
 
 `

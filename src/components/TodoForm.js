@@ -43,6 +43,26 @@ const FormContainer = styled.div `
            width: 100%;
            padding: 5rem;
            border-radius: 10px;
+
+           button{
+            border: 3px solid white;
+            padding:0.5em 1.1em;  
+            margin-left: 1em;
+            cursor: pointer;
+            transition: all .5s ease;
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1;
+            outline: none;
+            border-radius: 4px;
+            background-color : transparent;
+            :hover {
+            color: #001F3F;
+            
+            background-color: #fff;
+            }
+           }
        }
     `
 

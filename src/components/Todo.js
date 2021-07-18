@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Icon from '@material-ui/core/Icon';
 
 const Todo = ({todo, deleteTodo}) => {
 function handleDeleteTodo(){
@@ -9,7 +10,7 @@ function handleDeleteTodo(){
         
             <TodoContainer>
                 <li>{todo.task}</li>
-                <button onClick={handleDeleteTodo}>Delete</button> 
+                <Icon  onClick={handleDeleteTodo} >delete </Icon>
             </TodoContainer>
         
        
@@ -19,6 +20,7 @@ function handleDeleteTodo(){
 const TodoContainer = styled.div`
 display: flex;
 justify-content: center;
+align-items: center;
 
     li{
         margin-right: .5em;

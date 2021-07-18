@@ -20,6 +20,8 @@ const portal =
   
 function App() {
   const[todos, setTodos] = useState([])
+  const[saving, setSaving] = useState(null)
+  const[loading, setLoading] = useState(null)
   const[jsonData, setJsonData] = useState({})
   const[mySky, setMySky] = useState()
   const[userID, setUserID] = useState()
@@ -108,6 +110,7 @@ try {
 
   const loadData = async (e) => {
     e.preventDefault();
+    setLoading(true);
     console.log('Loading user data from SkyDB');
 
     const {data} = await mySky.getJSON(filePath)
@@ -118,6 +121,8 @@ try {
     }else{
       console.error('There was a problem with getJSON')
     }
+
+    setLoading(false)
   }
 
   const addTodo = async(todo) => {
@@ -153,7 +158,9 @@ try {
 
   return (
     <div className="App">
-       <TodoList todos={todos} deleteTodo={deleteTodo} />
+      {
+        loading ? 'LOADING...' : <TodoList todos={todos} deleteTodo={deleteTodo} />
+      }
         <TodoForm addTodo={addTodo} />
      <Buttons>
         <LoginButton  handleMySkyLogin={handleMySkyLogin}/>

@@ -43,7 +43,6 @@ const FormContainer = styled.div `
            width: 100%;
            padding: 5rem;
            border-radius: 10px;
-
            button{
             border: 3px solid white;
             padding:0.5em 1.1em;  

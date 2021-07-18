@@ -3,7 +3,7 @@
 const LoadDataButton = ({loadData}) => {
 
     return(
-        <button className='bouncy' onClick={loadData}>
+        <button  onClick={loadData}>
             Load Data
         </button>
     )

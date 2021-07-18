@@ -174,6 +174,7 @@ const Buttons = styled.div `
      text-align:center;
      position:relative;
     cursor:pointer;
+    text-transform: uppercase;
    
   }
 

@@ -3,7 +3,7 @@
 const LogoutButton = ({handleMySkyLogout}) => {
 
     return (
-        <button className='bouncy' onClick={handleMySkyLogout}>
+        <button  onClick={handleMySkyLogout}>
             Logout 
         </button>
     )

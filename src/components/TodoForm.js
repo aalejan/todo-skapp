@@ -42,7 +42,8 @@ const FormContainer = styled.div `
        form{
            display: flex;
            background: #f76c6c;
-           width: 100%;
+           width: 90%;
+           margin: auto;
            padding: 5rem;
            border-radius: 10px;
            button{

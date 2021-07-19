@@ -186,7 +186,7 @@ if(Object.keys(jsonData).length === 0){
         <button  onClick={() =>  handleMySkyWrite(jsonData)}>
           Save Data 
         </button>
-        <LoadDataButton saving={saving} loadData={loadData} />
+        <LoadDataButton loggedIn = {loggedIn} saving={saving} loadData={loadData} />
      </Buttons>
      <div>
        {renderedMessage()}

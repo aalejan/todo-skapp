@@ -154,6 +154,17 @@ if(Object.keys(jsonData).length === 0){
        return todo;
      })
    )
+   setJsonData(
+    {todoList : todos.map(todo => {
+      if(todo.id===id){
+        return{
+          ...todo,
+          completed: !todo.completed
+        };
+      }
+      return todo;
+    })}
+  )
 
   }
 

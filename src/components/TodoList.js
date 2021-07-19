@@ -1,7 +1,7 @@
 import Todo from './Todo'
 import styled from 'styled-components'
 
-const TodoList = ({todos, deleteTodo}) => {
+const TodoList = ({todos, deleteTodo, crossOffTodo}) => {
 
     return (
         <ListContainer>
@@ -9,7 +9,7 @@ const TodoList = ({todos, deleteTodo}) => {
                 {
                     todos.map((todo) => {
                     
-                        return <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo}/>
+                        return <Todo crossOffTodo={crossOffTodo} key={todo.id} todo={todo} deleteTodo={deleteTodo}/>
                     })
                 }
             </ul>

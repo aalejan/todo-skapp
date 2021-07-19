@@ -5,7 +5,8 @@ import styled from 'styled-components'
 const TodoForm = ({addTodo}) => {
     const [todo, setTodo] = useState({
         id: '',
-        task: ''
+        task: '',
+        completed: false
     })
 
     function handleInputChange(e){

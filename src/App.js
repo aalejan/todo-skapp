@@ -139,11 +139,22 @@ if(Object.keys(jsonData).length === 0){
 
      setTodos([todo, ...todos]);
      setJsonData({todoList: [todo, ...todos]})
-    //  const jsonData = {
-    //   todoList: [todo, ...todos]
-    // };
+    
+  }
 
-    // await handleMySkyWrite(jsonData);
+  const crossOffTodo = (id) => {
+   setTodos(
+     todos.map(todo => {
+       if(todo.id===id){
+         return{
+           ...todo,
+           completed: !todo.completed
+         };
+       }
+       return todo;
+     })
+   )
+
   }
 
   const  deleteTodo = async(id) => {
@@ -154,14 +165,6 @@ if(Object.keys(jsonData).length === 0){
     setJsonData({todoList: todos.filter((todo) => {
           return todo.id !== id 
         })})
-
-    // const jsonData = {
-    //   todoList: todos.filter((todo) => {
-    //     return todo.id !== id 
-    //   })
-    // };
-
-    // await handleMySkyWrite(jsonData);
 
   }
 
@@ -177,7 +180,7 @@ if(Object.keys(jsonData).length === 0){
   return (
     <div className="App">
       {
-        loading ? 'LOADING...' : <TodoList todos={todos} deleteTodo={deleteTodo} />
+        loading ? 'LOADING...' : <TodoList crossOffTodo={crossOffTodo} todos={todos} deleteTodo={deleteTodo} />
       }
         <TodoForm addTodo={addTodo} />
      <Buttons>

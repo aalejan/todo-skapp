@@ -8,6 +8,7 @@ import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import LoadDataButton from './components/LoadDataButton';
 import styled from 'styled-components';
+import Title from './components/Title';
 
 const portal =
   window.location.hostname === 'localhost' ? 'https://siasky.net' : undefined;
@@ -190,10 +191,13 @@ if(Object.keys(jsonData).length === 0){
 
   return (
     <div className="App">
-      {
+      <Title />
+     
+    <div className='main-content-container'>
+    {
         loading ? 'LOADING...' : <TodoList crossOffTodo={crossOffTodo} todos={todos} deleteTodo={deleteTodo} />
       }
-        <TodoForm addTodo={addTodo} />
+    <TodoForm addTodo={addTodo} />
      <Buttons>
         <LoginButton loggedIn={loggedIn} handleMySkyLogin={handleMySkyLogin}/>
         <LogoutButton loggedIn={loggedIn}  handleMySkyLogout={handleMySkyLogout}/>
@@ -204,7 +208,7 @@ if(Object.keys(jsonData).length === 0){
      </Buttons>
      <div>
        {renderedMessage()}
-       
+     </div>
      </div>
     </div>
   );

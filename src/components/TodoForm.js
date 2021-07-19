@@ -40,6 +40,7 @@ const FormContainer = styled.div `
        
 
        form{
+           display: flex;
            background: #f76c6c;
            width: 100%;
            padding: 5rem;
@@ -62,7 +63,19 @@ const FormContainer = styled.div `
             
             background-color: #fff;
             }
+
            }
+
+           input{
+                padding: 0rem .25rem;
+                line-height: 1;
+                border: none;
+                border-radius: 15px;
+
+                :focus {
+                    outline: none;
+                }
+            }
        }
     `
 

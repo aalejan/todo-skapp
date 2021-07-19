@@ -181,9 +181,9 @@ if(Object.keys(jsonData).length === 0){
       }
         <TodoForm addTodo={addTodo} />
      <Buttons>
-        <LoginButton  handleMySkyLogin={handleMySkyLogin}/>
-        <LogoutButton  handleMySkyLogout={handleMySkyLogout}/>
-        <button  onClick={() =>  handleMySkyWrite(jsonData)}>
+        <LoginButton loggedIn={loggedIn} handleMySkyLogin={handleMySkyLogin}/>
+        <LogoutButton loggedIn={loggedIn}  handleMySkyLogout={handleMySkyLogout}/>
+        <button disabled={!loggedIn ? true : saving}  onClick={() =>  handleMySkyWrite(jsonData)}>
           Save Data 
         </button>
         <LoadDataButton loggedIn = {loggedIn} saving={saving} loadData={loadData} />

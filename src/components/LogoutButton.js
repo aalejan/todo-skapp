@@ -1,9 +1,9 @@
 
 
-const LogoutButton = ({handleMySkyLogout}) => {
+const LogoutButton = ({handleMySkyLogout, loggedIn}) => {
 
     return (
-        <button  onClick={handleMySkyLogout}>
+        <button disabled={!loggedIn ? true : false} onClick={handleMySkyLogout}>
             Logout 
         </button>
     )
